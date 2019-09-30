@@ -48,3 +48,18 @@ function guess(id, guess) {
      populate();
     }
 };
+
+function populate() {
+
+     var element = document.getElementById("question");
+     element.innerHTML = quiz.getQuestion().text;
+
+     // show options
+     var choices = quiz.getQuestion().choices;
+     for(var i = 0; i < choices.length; i++) {
+         var element = document.getElementById("choice" + i);
+         element.innerHTML = choices[i];
+         guess("btn" + i, choices[i]);
+     }
+};
+

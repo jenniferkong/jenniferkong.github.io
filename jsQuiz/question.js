@@ -4,6 +4,10 @@ class Question {
         this.choices = choices;
         this.answer = answer;
     }
+
+    isCorrectAnswer(choice){
+        return this.answer === choice;
+    }
 }
 
 var questions = [
@@ -22,24 +26,20 @@ class Quiz {
 
 
     getQuestion() {
-
         return this.questions[this.questionIndex];
+    }
 
+    guess(answer) {
+        if(this.getQuestion().isCorrectAnswer(answer)) {
+        this.score++;
+        }
+
+        this.questionIndex++;
     }
 
 }
 
-    isCorrectAnswer(choice){
-        return this.answer === choice;
-    }
 
-    guess(answer) {
-    if(this.getQuestion().isCorrectAnswer(answer)) {
-     this.score++;
-            }
-
-        this.questionIndex++;
-    }
 
 function guess(id, guess) {
     var button = document.getElementById(id);

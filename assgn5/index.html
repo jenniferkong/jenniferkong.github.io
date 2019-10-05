@@ -1,7 +1,55 @@
 <!DOCTYPE html>
 <html>
-    <body>
-        <h1>Assignment 5</h1>
-        <p>Assignment 5 starts here.</p>
-    </body>
+<body>
+<head>
+     <title>Bun Bun Bake Shop</title>
+     <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<div>
+    <ul class="navBar">
+        <div>
+        <li id="logo"><a href="index.html"><img src="assets/logo.svg" alt="logo" width=50 height=50> </img></a></li> </div>
+        <div>
+        <li id="bakeShop"><a href="index.html">Bun Bun Bake Shop </a></li></div>
+        <!-- organized this way bc the weird float right inverses all text -->
+        <div><li id="cart"><a href="cart.html"><img src="assets/cart.svg" alt="cart" width=50 height=50></img></a></li></div>
+        <div><li id="tracker"><a href="tracker.html">Tracker </a></li></div>
+        <div><li id="shop"><a href="shop.html">Shop</a></li></div>
+    </ul>
+</div>
+
+
+<div class ="carousel">
+    <!-- https://www.w3schools.com/howto/howto_css_circles.asp -->
+    <img id="carouselPic" src="assets/homepage-buns1.jpg" alt="delicious buns" width="" height=""> </img>
+    <br>
+    <span class="dot"> </span>
+    <span class="dot"> </span>
+    <span class="dot"> </span>
+</div>
+
+<main>
+<div class ="popular">
+    <h1 id="popularTitle"> Popular Items </h1>
+    <!-- clickable images code refed from: https://www.w3schools.com/html/html_images.asp -->
+    <div class="buns">
+        <div class="blackberry">
+            <img src="assets/blackberry.svg" alt="blackberry" width=200 height=200> </img>
+            <h3>Blackberry Flavored Bun</h3>
+        </div>
+        <div class = "original">
+            <img src="assets/bun.svg" alt="original" width=200 height=200></img>
+            <h3>Original Flavored Bun</h3>
+        </div>
+        <div class = "pumpkin">
+            <img src="assets/pumpkinSpice.svg" alt="pumpkin spice" width=200 height=200></img>
+            <h3>Pumpkin Spice Flavored Bun</h3>
+        </div>
+    </div>
+</div>
+</main>
+<footer>
+</footer>
+</body>
 </html>

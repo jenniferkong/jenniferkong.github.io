@@ -1,0 +1,93 @@
+/*https://www.w3schools.com/css/css_navbar.asp */
+.navBar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #E8F2FF;
+    font-family: Helvetica;
+    font-size: 30px;
+    font-weight: bold;
+    align-content: center;
+}
+
+h1, p, h2,
+h3 {
+    font-family: Helvetica, Arial, sans-serif;
+    color: #4A4A4A;
+}
+
+p {
+    font-size: 15px;
+    font-style: italic;
+}
+
+#logo{
+    padding-left: 20px;
+ }
+
+#shop,
+#tracker,
+#cart {
+    float: right;
+    padding-right: 75px;
+}
+
+#cart {
+    padding-right:125px;
+}
+
+/*https://www.w3schools.com/css/css_navbar.asp */
+li a{
+    float:left;
+    display: block;
+    color: #4A4A4A;
+    /* top right bottom left*/
+    padding: 15px 0px 0px 20px;
+    text-decoration: none;
+}
+
+.carousel,
+.buns {
+    text-align: center;
+}
+
+#carouselPic {
+    padding: 50px 0px 25px 0px;
+}
+
+/* https://www.w3schools.com/howto/howto_css_circles.asp
+https://www.w3schools.com/howto/howto_js_slideshow.asp
+*/
+
+.dot {
+    height: 10px;
+    width: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.popular,
+.buns {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 70px;
+    margin-top: 50px;
+    justify-items: center;
+    justify-content: space-evenly;
+    align-items: stretch;
+    align-content: center;
+    grid-auto-flow: row;
+    padding-bottom: 0px;
+}
+
+#popularTitle{
+    padding-left: 60px;
+}
+
+
+footer {
+    padding: 30px;
+}

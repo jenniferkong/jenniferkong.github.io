@@ -75,9 +75,9 @@ https://www.w3schools.com/howto/howto_js_slideshow.asp
     margin: 0 10px;
 }
 
-#title{
-    display:grid;
-    grid-template-column: minmax(300px, 400px);
+.title{
+    display: grid;
+    grid-template-columns: minmax(300px, 400px);
 
 }
 .popular,
@@ -97,8 +97,9 @@ https://www.w3schools.com/howto/howto_js_slideshow.asp
 }
 
 #popularTitle,
-#title{
-    padding-left: 60px;
+.title,
+.miniNav{
+    padding-left: 120px;
     text-align: left;
 }
 

@@ -11,6 +11,12 @@
     align-content: center;
 }
 
+.miniNav {
+    padding-left: 100px;
+    display: inline;
+    text-decoration: none;
+    list-style-type: none;
+}
 h1, p, h2,
 h3 {
     font-family: Helvetica, Arial, sans-serif;
@@ -33,7 +39,7 @@ p {
     padding-right: 75px;
 }
 
-#cart {
+#cart{
     padding-right:125px;
 }
 
@@ -69,8 +75,14 @@ https://www.w3schools.com/howto/howto_js_slideshow.asp
     margin: 0 10px;
 }
 
+#title{
+    display:grid;
+    grid-template-column: minmax(300px, 400px);
+
+}
 .popular,
-.buns {
+.buns,
+.items{
     display: grid;
     grid-template-columns: auto auto auto;
     grid-gap: 70px;
@@ -81,12 +93,14 @@ https://www.w3schools.com/howto/howto_js_slideshow.asp
     align-content: center;
     grid-auto-flow: row;
     padding-bottom: 0px;
+    text-align:center;
 }
 
-#popularTitle{
+#popularTitle,
+#title{
     padding-left: 60px;
+    text-align: left;
 }
-
 
 footer {
     padding: 30px;

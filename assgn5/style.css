@@ -75,6 +75,15 @@ https://www.w3schools.com/howto/howto_js_slideshow.asp
     margin: 0 10px;
 }
 
+.circle{
+    height: 200px;
+    width: 200px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 10px;
+}
+
 .title{
     display: grid;
     grid-template-columns: minmax(300px, 400px);

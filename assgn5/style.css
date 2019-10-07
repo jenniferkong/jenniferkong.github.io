@@ -161,7 +161,8 @@ https://www.w3schools.com/howto/howto_js_slideshow.asp
 
 }
 
-
+/*coming up with an error (parse error @ line 173)
+on the validator but I don't have enough feedback to know what to fix ????*/
 .productDetails {
     display: grid;
     grid-template-columns: 150px 1fr 1fr 1fr 150px;

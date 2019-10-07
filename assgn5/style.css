@@ -1,3 +1,13 @@
+/* you're probably wondering what went wrong with that product details page?
+I probably spent the last 4 days coding nonstop and like the syllabus says,
+I'm putting my well being first. :(
+
+Why didn't I ask piazza more?
+The process is so formalized that I feel the need to spend 3-4 hrs debugging first before I ask.
+By the time I hit hour 3, I've debugged something (usually).
+so sorry to disappoint, this is not my best work, but I'll see you in oh!!
+*/
+
 /*https://www.w3schools.com/css/css_navbar.asp */
 .navBar {
     list-style-type: none;
@@ -104,6 +114,7 @@ https://www.w3schools.com/howto/howto_js_slideshow.asp
     grid-auto-flow: row;
     padding-bottom: 0px;
     text-align:center;
+    text-decoration: none;
 }
 
 #popularTitle,
@@ -112,6 +123,7 @@ https://www.w3schools.com/howto/howto_js_slideshow.asp
     padding-left: 120px;
     text-align: left;
 }
+
 .pDivider {
     display: inline-block;
     vertical-align: top;
@@ -149,6 +161,7 @@ https://www.w3schools.com/howto/howto_js_slideshow.asp
 
 }
 
+
 .productDetails {
     display: grid;
     grid-template-columns: 150px 1fr 1fr 1fr 150px;
@@ -158,6 +171,7 @@ https://www.w3schools.com/howto/howto_js_slideshow.asp
                         .              imageCircles    description     .
                         footer          footer          footer          footer";
 }
+
 footer {
     padding: 30px;
 }

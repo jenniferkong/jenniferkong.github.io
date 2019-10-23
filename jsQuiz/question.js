@@ -44,8 +44,8 @@ class Quiz {
 function guess(id, guess) {
     var button = document.getElementById(id);
     button.onclick = function() {
-     quiz.guess(guess);
-     populate();
+        quiz.guess(guess);
+    populate();
     }
 };
 

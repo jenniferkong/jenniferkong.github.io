@@ -203,12 +203,17 @@ on the validator but I don't have enough feedback to know what to fix ????*/
     padding-left: 100px;
 }
 
-.flavor,
+.glaze,
 .quantity,
 .total {
     display: grid;
     grid-template-columns: 1fr 1fr;
 
+}
+
+#amtInCart {
+    display: inline-block;
+    margin-top: -20px;
 }
 
 footer {

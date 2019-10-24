@@ -14,7 +14,13 @@
         </div>
         <!-- organized this way bc the weird float right inverses all text -->
         <div>
-            <li id="cart"><a href="cart.html"><img src="assets/cart.svg" alt="cart" width=50 height=50></a></li>
+            <li id="cart">
+                <a href="cart.html">
+                <img src="assets/cart.svg" alt="cart" width=50 height=50>
+
+                <div id="amtInCart"></div>
+                </a>
+            </li>
         </div>
 
         <div>
@@ -45,14 +51,14 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget ullamcorper risus. Maecenas varius nisl in felis malesuada, ac </p>
 
         <h3>Quantity</h3>
-        <div class="quantity" onclick="displayPriceinCart()">
-            <p><input type="radio" name="quantity" value="1.35" id="1" onclick="displayPriceinCart()"> Just 1 ($1.35)</p>
-            <p><input type="radio" name="quantity" value="5.00" id="3"> Set of 3 ($5.00)</p>
-            <p><input type="radio" name="quantity" value="9.00" id="6"> Set of 6 ($9.00)</p>
-            <p><input type="radio" name="quantity" value="15.00" id="9"> Set of 9 ($15.00)</p>
+        <div class="quantity" onclick="displaySubtotal();">
+            <p><input type="radio" name="quantity" value="1.35" id="1" onclick="displaySubtotal();"> Just 1 ($1.35)</p>
+            <p><input type="radio" name="quantity" value="5.00" id="2" onclick="displaySubtotal();"> Set of 3 ($5.00)</p>
+            <p><input type="radio" name="quantity" value="9.00" id="3" onclick="displaySubtotal();"> Set of 6 ($9.00)</p>
+            <p><input type="radio" name="quantity" value="15.00" id="4" onclick="displaySubtotal();" > Set of 9 ($15.00)</p>
     </div>
 
-        <h3>Flavor</h3>
+        <h3>Glaze</h3>
         <div class = "glaze">
         <div id="pOriginal">
 
@@ -83,9 +89,11 @@
         <h3>Total</h3>
         <h3 id="updatedTotal">$0.00</h3>
     </div>
-    <input type="button" class="button" value="Add to Cart">
+    <input type="button" class="button" value="Add to Cart" onclick="displayCartInHTML();" >
 </div>
 
+<!-- uncomment to clear cart -->
+<!-- <button id="clear" onclick="clearCart();"> clear!</button> -->
 </div>
 <script src="main.js" type="text/javascript"></script>
 </body>

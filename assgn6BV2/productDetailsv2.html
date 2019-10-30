@@ -62,34 +62,34 @@
         <div class = "glaze">
         <div id="pOriginal">
 
-            <p><input type="radio" name="flavor" min="1" max="6"/> Original</p>
+            <p><input type="radio" name="flavor" min="1" max="6" id="5"/> Original</p>
         </div>
 
         <div id="pGF">
-            <p><input type="radio" name="flavor" min="1" max="6"/> Gluten Free Original</p>
+            <p><input type="radio" name="flavor" min="1" max="6" id="6"/> Gluten Free Original</p>
         </div>
 
         <div id="pBlackberry">
-            <p><input type="radio" name="flavor" min="1" max="6"/> Blackberry</p>
+            <p><input type="radio" name="flavor" min="1" max="6" id="7"/> Blackberry</p>
         </div>
 
         <div id="pWalnut">
-            <p> <input type="radio" name="flavor" min="1" max="6"/> Walnut</p>
+            <p> <input type="radio" name="flavor" min="1" max="6" id="8"/> Walnut</p>
         </div>
 
         <div id="pPumpkin">
-            <p><input type="radio" name="flavor" min="1" max="6"/> Pumpkin Spice</p>
+            <p><input type="radio" name="flavor" min="1" max="6" id="9"/> Pumpkin Spice</p>
         </div>
 
         <div id="pChocolate">
-            <p><input type="radio" name="flavor" min="1" max="6"/> Chocolate Pecan</p>
+            <p><input type="radio" name="flavor" min="1" max="6" id="10"/> Chocolate Pecan</p>
         </div>
     </div>
     <div class = "total">
         <h3>Total</h3>
         <h3 id="updatedTotal">$0.00</h3>
     </div>
-    <input type="button" class="button" value="Add to Cart" onclick="displayCartInHTML();" >
+    <input id="addToCartButton" type="button" class="button" value="Add to Cart" onclick="displayCartInHTML();addObjectToCartAndLocalStorage();" >
 </div>
 
 <!-- uncomment to clear cart -->

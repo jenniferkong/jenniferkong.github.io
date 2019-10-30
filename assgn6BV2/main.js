@@ -60,7 +60,6 @@ function displayCartInHTML() {
         var storeCart = localStorage.setItem("amount",quantity);
         //storing my stuff so i can refresh and keep my content
         var quantity2 = localStorage.getItem("amount");
-        // console.log("amount", amount)
         //retreiving my content to be assigned as quantity2
         quantity = quantity2;
         // referring to my html doc and naming the default 0 as x
@@ -73,29 +72,28 @@ function displayCartInHTML() {
 }
 
 // for 6b
-//missing local storage
-
+//local storage
 var cart = [];
 function addObjectToCartAndLocalStorage(){
-    var storeItemIntoCart = localStorage.setItem("bun", (newObject()));
-    var store2 = localStorage.getItem("bun");
-    return storeItemIntoCart;
-
     cart.push(newObject());
+    console.log (cart, "cart");
+    var storeItemIntoCart = localStorage.setItem("bun", JSON.stringify(cart));
+    var store2 = JSON.parse(localStorage.getItem(storeItemIntoCart));
+    storeItemIntoCart = store2
+    return storeItemIntoCart;
 }
 
-
+//creates a new object
 function newObject(){
     var newFlavor = document.getElementById("flavor").textContent;
     var newGlaze = customizeGlazeToObject();
     var newQuantity = customizeQuantityToObject();
     var newPrice = customizePriceToObject();
     var newBun = new bun (newFlavor, newGlaze, newQuantity, newPrice);
-
     return newBun;
-
 }
-//gathers all necessary information
+
+//gathers all necessary information///////
 function customizeQuantityToObject(){
     var quantityOfBuns = 0;
     for (i = 1; i < 5; i++ ){
@@ -170,58 +168,16 @@ function customizeGlazeToObject(){
     return glazeOfBuns;
 }
 
+//dynamically updates html with amount in cart
+function matchCartArraytoCartDisplay(){
+    for (var item =0; item<cart.length; item++) {
+        //add html
+    }
+}
 
-// function addItemToCartPrice(){
-//     console.log("add to addItemToCartPrice is running");
-//     var quantityDiv = document.getElementByID("quantity");
-//     var inputs = quantityDiv.getElementsByTagName("input");
-//     for (var quantitySelection=0; quantitySelection<inputs.length; i++) {
-//         if (inputs[quantitySelection].checked) {
-//             //constantly updating text
-//             document.getElementById("updatedTotal").innerHTML = newItemPrice;
-//             var newItemPrice = inputs[quantitySelection].value;
-//             console.log(newItemPrice);
-//             return newItemPrice;
-//         }
-//     }
-// }
+//remove item in cart
+function removeItemFromCart(){
 
-// function addItemToCartGlaze(){
-//     console.log("add to addItemToCartGlaze is running");
-//     var glazeDiv = document.getElementByID("glaze");
-//     var inputs = glazeDiv.getElementsByTagName("input");
-//     for (var glazeSelection=0; glazeSelection<inputs.length; i++) {
-//         if (inputs[glazeSelection].checked) {
-//             return newItemGlaze = inputs[glazeSelection].value;
-//         }
-//     }
-// }
-
-
-//for loop into flavor div https://stackoverflow.com/questions/844869/iterating-through-all-the-div-tags-on-a-page
-//how to specify div to loop through specific ids in quantity?
-// function displayPriceinCart(){
-//     var ids = document.getElementsByTagName("id");
-//     for(var i = 0; i < ids.length; i++){
-//         if (ids[i].checked) {
-//             var updatedTotalValue= ids[i].value;
-//             return document.getElementByID("updatedTotal").innerHTML = "$" + updatedTotalValue;
-//             }
-//     }
-// }
-// function storeCart(quantity) {
-//     console.log("storeCart works");
-//     var storeCart = localStorage.setItem("amount",quantity);
-//     console.log("storeCart", quantity);
-//     return storeCart;
-// }
-
-//uncomment this to clear !!
-// function clearCart(quantity){
-//     localStorage.setItem("amount",0);
-//     displayValue=0;
-//     displayCartInHTML();
-// }
-
+}
 console.log("javascript is reading")
 console.log("cart",cart)

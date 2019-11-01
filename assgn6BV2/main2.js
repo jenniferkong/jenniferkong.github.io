@@ -4,9 +4,12 @@ var cart = [];
 var cartTotal = 0;
 var storeItemIntoCart = null;
 cart = JSON.parse(localStorage.getItem("bun"));
-matchCartArraytoCartDisplay();
+if (cart == null){
+    cart = [];
+}
 findTotalPrice();
 updateCartPageTotal();
+//updateLocalStorageOfCart();
 //update cart value in banner, actually find value
 var tmp = localStorage.getItem("amount");
 var displayValue = tmp==null? 0:(parseInt(tmp,10));
@@ -19,6 +22,7 @@ function bun(flavor, glaze, quantity, price) {
     this.price = price;
     //this.ID = ID;
 }
+
 //totals price on cart page
 function findTotalPrice(){
     var bun = JSON.parse(localStorage.getItem("bun"));
@@ -27,6 +31,7 @@ function findTotalPrice(){
     }
     //https://stackoverflow.com/questions/9453421/how-to-round-float-numbers-in-javascript
     cartTotal = (cartTotal).toFixed(2);
+    cart = JSON.parse(localStorage.getItem("bun"))
     return cartTotal
 }
 //show amount of items in cart
@@ -56,36 +61,15 @@ function displayItemsInCart(){
     return displayValue;
 }
 
-//dynamically updates html with amount in cart
-function matchCartArraytoCartDisplay(){
-    for (var item =0; item<cart.length; item++) {
-        //add html
-        $('.order').append("\
-            <div id='item'>\
-                <h3></h3>\
-                <p></p>\
-            </div>\
-            <div>\
-                <p></p>\
-                <p id='editor'> x </p>\
-                <p id='editor'> Edit </p>\
-                <p>\
-            </div>");
-        }
-}
-
-//remove item in cart
-function removeItemFromCart(){
-
-}
-
-
-
 ///view - ui displays///////////////////////////////////////
 //updates cart page total
 function updateCartPageTotal(){
+    if (cart===null) {
+        document.getElementById("totalText").innerHTML= "Total  $0.00";
+    }
     document.getElementById("totalText").innerHTML= "Total  $" + cartTotal;
 }
+
 //updatesSubTotal
 function displaySubtotal() {
     for (i = 1; i < 5; i++ ){
@@ -110,14 +94,6 @@ function newObject(){
     var newBun = new bun (newFlavor, newGlaze, newQuantity, newPrice);
     return newBun;
 }
-
-//gathers all necessary information///////
-// function customizeIDToObject() {
-//     var cartLength = cart.length;
-//     var newID = 0;
-//     newID = cartLength+1;
-//     return newID;
-// }
 
 function customizeQuantityToObject(){
     var quantityOfBuns = 0;
@@ -193,9 +169,6 @@ function customizeGlazeToObject(){
     return glazeOfBuns;
 }
 
-function matchCartArraytoCartDisplay(){
-}
-
 ///controller - user actions/events///////////////////////////////////////
 
 // stores cart value & changing amount in cart to quantity from displayItemsInCart();
@@ -225,7 +198,6 @@ function displayCartInHTML() {
 function addObjectToCartAndLocalStorage(){
     if (typeof localStorage.getItem("bun") !== "string") {
         cart= JSON.parse(localStorage.getItem("bun"));
-        console.log("test")
     }
     if (cart === null || cart.length === 0 ) {
         //place object into array
@@ -244,6 +216,7 @@ function addObjectToCartAndLocalStorage(){
         storeItemIntoCart = localStorage.setItem("bun", JSON.stringify(cart));
     }
     console.log(cart) //comment this out and your console breaks lmfao what
+    cart = JSON.parse(localStorage.getItem("bun"));
     return storeItemIntoCart;
 }
 /*** Document Load ****/
@@ -253,26 +226,53 @@ $( document ).ready(function() {
             var quantityFlavorFlavoredBuns = ((bun[item].quantity)+ " " +(bun[item].flavor)+" Flavored Buns");
             var withGlazeGlaze = ("With"+ " " +(bun[item].glaze)+ " " +"Glaze");
             var dollarPrice = ("$"+bun[item].price);
-            $(".order").append(`
+            var newHTML = `
                 <p></p>
                 <div id='item'`+item+`>
-                    <h3 id='item_quantity_flavor'+item>` + quantityFlavorFlavoredBuns +`
+                    <h3 id='item_quantity_flavor`+item+`'>` + quantityFlavorFlavoredBuns +`
                     </h3>
-                    <p id='item_glaze'`+item+`>`+withGlazeGlaze+`</p>
+                    <p id='item_glaze`+item+`'>`+withGlazeGlaze+`</p>
                 </div>
                 <div>
-                    <p id='item_cost'`+item+`>`+dollarPrice+`</p>
+                    <p id='item_cost`+item+`'>`+dollarPrice+`</p>
                 </div>
                 <div>
-                    <p id='editor_x'`+item+`> x </p>
+                    <p class='editor_x' id='editor_x`+item+`'> x </p>
                 </div>
                 <div>
-                    <p id='editor'`+item+`> Edit </p>
+                    <p id='editor`+item+`'> Edit </p>
                     <p>
-                </div>`)
+                </div>`
+            //console.log(newHTML)
+            $(".order").append(newHTML);
             // var test = $("#item_quantity_flavor"+item).text((bun[item].quantity)+ " " +(bun[item].flavor)+" Flavored Buns");
             // console.log(test, "div")
+
+            //<p id='editor_x`+item+`'> x </p>
         }
+
+//remove item from cart []
+///adding clicky to x's
+var lookForX = document.getElementsByClassName("editor_x");
+var stringOfID = null;
+for (var i=0; i<lookForX.length; i++) {
+    console.log("cart in loop", cart);
+    lookForX[i].addEventListener("click", function() {
+        stringOfID = this.id;
+        //when clicked, that's my specific x
+        stringOfID = String(stringOfID)
+        //https://stackoverflow.com/questions/3568921/how-to-remove-part-of-a-string
+        stringOfID = stringOfID.split("x").pop();
+        //https://gomakethings.com/converting-strings-to-numbers-with-vanilla-javascript/
+        stringOfID = parseInt(stringOfID, 10);
+        console.log(cart[stringOfID], "value in cart");
+        //1 only removes the one 1 item SPLICE IS FUCKED aka
+        cart.splice(stringOfID,1);
+        console.log("cart after splice", cart);
+        });
+    cart = JSON.parse(localStorage.getItem("bun"));
+}
 });
+
 console.log("javascript is reading")
-console.log("cart",cart)
+//console.log("cart",cart)

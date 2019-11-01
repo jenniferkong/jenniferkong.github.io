@@ -194,7 +194,8 @@ on the validator but I don't have enough feedback to know what to fix ????*/
 
 }
 
-#checkOut {
+#checkOut,
+#totalText {
     padding-left: 110px;
 }
 

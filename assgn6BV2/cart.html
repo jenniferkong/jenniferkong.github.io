@@ -3,6 +3,7 @@
 <head>
     <title>Bun Bun Bake Shop</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
+
         <div>
     <ul class="navBar">
         <div>
@@ -13,7 +14,9 @@
         </div>
         <!-- organized this way bc the weird float right inverses all text -->
         <div>
-            <li id="cart"><a href="cart.html"><img src="assets/cart.svg" alt="cart" width=50 height=50></a></li>
+            <li id="cart"><a href="cart.html"><img src="assets/cart.svg" alt="cart" width=50 height=50>
+            <div id="amtInCart"></div>
+            </a></li>
         </div>
 
         <div>
@@ -33,25 +36,35 @@
         <h1>Your Cart</h1>
     </div>
     <div class ="order">
-        <p></p>
+        <!-- <p></p>
         <div id="item">
-            <h3>6 Original Flavored Buns </h3>
-            <p> With None Glaze </p>
+            <h3 id="item_quantity_flavor"></h3>
+            <p id="item_glaze"> </p>
         </div>
-        <p> $7.00</p>
-        <p id="editor"> x </p>
-        <p id="editor"> Edit </p>
-        <p>
+        <div>
+            <p id="item_cost"></p>
+        </div>
+        <div>
+            <p id="editor_x"> x </p>
+        </div>
+        <div>
+            <p id="editor"> Edit </p>
+            <p>
+        </div> -->
     </div>
-    <div class ="check">
+    <div class ="checkTotal">
         <p></p>
-        <p id="totalText">Total</p>
-        <p id="totalMoney">$7.00</p>
-
+        <div>
+        <p id="totalText">Total $</p>
+    </div>
     </div>
     <div id="checkOut">
     <input type="button" class="button" id="checkOut" value="Check Out">
 </div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="main2.js" type="text/javascript"></script>
+
 </body>
 
 

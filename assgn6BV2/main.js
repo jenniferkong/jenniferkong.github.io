@@ -3,6 +3,7 @@ function bun(flavor, glaze, quantity, price) {
     this.glaze = glaze;
     this.quantity = quantity;
     this.price = price;
+    //this.ID = ID;
 }
 var newItemQuantity = 0;
 
@@ -21,31 +22,42 @@ function displaySubtotal() {
     }
 
 }
+
+var cart = [];
+matchCartArraytoCartDisplay();
+
+
 //update cart value in banner, actually find value
-var displayValue = parseInt(localStorage.getItem("amount"),10);
-displayCartInHTML();
+var tmp = localStorage.getItem("amount");
+var displayValue = tmp==null? 0:(parseInt(tmp,10));
+
+
 //show amount of items in cart
 function displayItemsInCart(){
-    for (i = 1; i < 5; i++ ){
-        //checks if radio that is selected
-        var x = document.getElementById(i.toString()).checked;
-        if (x == true){
-            if (i == "1") {
-                displayValue+=1;
+    var checkRadio = document.getElementsByTagName("input")
+    if (checkRadio.type == "radio") {
+        for (i = 1; i < 5; i++ ){
+            //checks if radio that is selected
+            var x = document.getElementById(i.toString()).checked;
+            if (x == true) {
+                if (i == "1") {
+                    displayValue+=1;
+                }
+                else if (i== "2") {
+                    displayValue+=3;
+                }
+                else if (i== "3") {
+                    displayValue+=6;
+                }
+                else if (i== "4") {
+                    displayValue+=9;
+                }
+            console.log(displayValue, "displayValue");
             }
-            else if (i== "2") {
-                displayValue+=3;
-            }
-            else if (i== "3") {
-                displayValue+=6;
-            }
-            else if (i== "4") {
-                displayValue+=9;
-            }
-        console.log(displayValue, "displayValue");
         }
     }
     return displayValue;
+
 }
 
 // stores cart value & changing amount in cart to quantity from displayItemsInCart();
@@ -56,6 +68,7 @@ function displayCartInHTML() {
     if (quantity > 0){
         //if quantity is more than 0, i want to update it
         var x = document.getElementById("amtInCart");
+        // console.log(x,"x");
         // changing the html doc x to quantity
         var storeCart = localStorage.setItem("amount",quantity);
         //storing my stuff so i can refresh and keep my content
@@ -65,21 +78,33 @@ function displayCartInHTML() {
         // referring to my html doc and naming the default 0 as x
         x.innerHTML = quantity;
         //assigning quantity to quantity2
-        console.log(quantity2, "quantity2");
-
+        // console.log(quantity2, "quantity2");
         return quantity2;
     }
 }
 
 // for 6b
 //local storage
-var cart = [];
 function addObjectToCartAndLocalStorage(){
+    console.log (cart, "cart in addObjectToCartAndLocalStorage");
+    // cart.push(newObject());
+    // var storeItemIntoCart = localStorage.setItem("bun", JSON.stringify(cart));
+    // var store2 = JSON.parse(localStorage.getItem(storeItemIntoCart));
+    // storeItemIntoCart = store2
+    var bunget = localStorage.getItem("bun");
+    console.log("hello");
+    var retrieveLS = bunget==null? []:(JSON.parse(bunget));
     cart.push(newObject());
-    console.log (cart, "cart");
-    var storeItemIntoCart = localStorage.setItem("bun", JSON.stringify(cart));
-    var store2 = JSON.parse(localStorage.getItem(storeItemIntoCart));
-    storeItemIntoCart = store2
+    console.log(retrieveLS);
+    retrieveLS = retrieveLS.push(cart);
+    var setLS = localStorage.setItem("bun", JSON.stringify(retrieveLS));
+    var storeItemIntoCart = setLS;
+
+
+//get local storage first
+//push to cart
+//modify local storage with updated cart
+//return modified local storage
     return storeItemIntoCart;
 }
 
@@ -89,11 +114,19 @@ function newObject(){
     var newGlaze = customizeGlazeToObject();
     var newQuantity = customizeQuantityToObject();
     var newPrice = customizePriceToObject();
+    //var newID = customizeIDToObject();
     var newBun = new bun (newFlavor, newGlaze, newQuantity, newPrice);
     return newBun;
 }
 
 //gathers all necessary information///////
+// function customizeIDToObject() {
+//     var cartLength = cart.length;
+//     var newID = 0;
+//     newID = cartLength+1;
+//     return newID;
+// }
+
 function customizeQuantityToObject(){
     var quantityOfBuns = 0;
     for (i = 1; i < 5; i++ ){
@@ -114,13 +147,13 @@ function customizeQuantityToObject(){
             }
         }
     }
-    console.log (quantityOfBuns, "quantityOfBuns")
+    // console.log (quantityOfBuns, "quantityOfBuns")
     return quantityOfBuns;
 }
 
 function customizePriceToObject(){
     var quantityOfBunsforPrice = customizeQuantityToObject();
-    console.log ("quantityOfBunsforPrice", quantityOfBunsforPrice)
+    // console.log ("quantityOfBunsforPrice", quantityOfBunsforPrice)
     var priceOfBuns = 0;
     if (quantityOfBunsforPrice == "1") {
         priceOfBuns = "1.35"
@@ -134,7 +167,7 @@ function customizePriceToObject(){
     else if (quantityOfBunsforPrice == "9") {
         priceOfBuns = "15.00"
     }
-    console.log("priceOfBuns", priceOfBuns)
+    // console.log("priceOfBuns", priceOfBuns)
     return priceOfBuns;
 }
 
@@ -164,7 +197,7 @@ function customizeGlazeToObject(){
             }
         }
     }
-    console.log(glazeOfBuns, "glazeOfBuns")
+    // console.log(glazeOfBuns, "glazeOfBuns")
     return glazeOfBuns;
 }
 
@@ -172,7 +205,18 @@ function customizeGlazeToObject(){
 function matchCartArraytoCartDisplay(){
     for (var item =0; item<cart.length; item++) {
         //add html
-    }
+        $('.order').append("\
+            <div id='item'>\
+                <h3></h3>\
+                <p></p>\
+            </div>\
+            <div>\
+                <p></p>\
+                <p id='editor'> x </p>\
+                <p id='editor'> Edit </p>\
+                <p>\
+            </div>");
+        }
 }
 
 //remove item in cart

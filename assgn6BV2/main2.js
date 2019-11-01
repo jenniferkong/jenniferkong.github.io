@@ -207,72 +207,29 @@ function displayCartInHTML() {
 
 //local storage
 function addObjectToCartAndLocalStorage(){
-    console.log (cart, "cart in addObjectToCartAndLocalStorage");
-    // cart.push(newObject());
-    // var storeItemIntoCart = localStorage.setItem("bun", JSON.stringify(cart));
-    // var store2 = JSON.parse(localStorage.getItem(storeItemIntoCart));
-    // storeItemIntoCart = store2
-    console.log(bun, "bun")
     if (typeof localStorage.getItem("bun") !== "string") {
         cart= JSON.parse(localStorage.getItem("bun"));
         console.log("test")
     }
-
     if (cart === null || cart.length === 0 ) {
         //place object into array
         cart = [];
         cart.push(newObject());
         console.log (JSON.stringify(cart), "cart if");
         //set bun to things in cart and places it in LS
-
         storeItemIntoCart = localStorage.setItem("bun", JSON.stringify(cart));
-
         //puts it back into jumbles for LS + stores local storage
     }
     else {
-        // var bunget = localStorage.getItem("bun");
-
-        // console.log("bunget", bunget);
-        // var retrieveLS = bunget==null? []:(JSON.parse(bunget));
-        // cart.push(newObject());
-
-        // console.log(cart, "post cart push")
-        // console.log(retrieveLS, "retreiveLS");
-
-        // retrieveLS = retrieveLS.push(cart);
-        // var setLS = localStorage.setItem("bun", JSON.stringify(retrieveLS));
-        // var storeItemIntoCart = setLS;
-
         //pull info from storage
         var unjumbledStorage = JSON.parse(localStorage.getItem("bun"));
         //modify info from storage
-
         unjumbledStorage = cart.push(newObject());
-        console.log(cart, "cart else")
-
         storeItemIntoCart = localStorage.setItem("bun", JSON.stringify(cart));
-
-
-        //cart= JSON.parse(localStorage.getItem("bun"));
-
     }
-//get local storage first
-//push to cart
-//modify local storage with updated cart
-//return modified local storage
-    console.log(cart, "cart out")
+    console.log(cart) //comment this out and your console breaks lmfao what
     return storeItemIntoCart;
 }
-
-
-///rewriting localstorage when i button click
-//cart is empty when i refresh
-
-// function checkLocalStorage(){
-//     if ((localStorage.getItem("bun") != null) {
-//         cart =
-//     }
-//}
 
 console.log("javascript is reading")
 console.log("cart",cart)

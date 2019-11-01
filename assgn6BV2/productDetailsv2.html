@@ -89,13 +89,16 @@
         <h3>Total</h3>
         <h3 id="updatedTotal">$0.00</h3>
     </div>
-    <input id="addToCartButton" type="button" class="button" value="Add to Cart" onclick="displayCartInHTML();addObjectToCartAndLocalStorage();" >
+    <input id="addToCartButton" type="button" class="button" value="Add to Cart" onclick="displayCartInHTML();
+    addObjectToCartAndLocalStorage()" >
 </div>
 
 <!-- uncomment to clear cart -->
 <!-- <button id="clear" onclick="clearCart();"> clear!</button> -->
 </div>
-<script src="main.js" type="text/javascript"></script>
+<script src="main2.js" type="text/javascript">
+window.onload = displayCartInHTML();
+</script>
 </body>
 
 

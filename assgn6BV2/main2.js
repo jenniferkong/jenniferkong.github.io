@@ -9,6 +9,7 @@ if (cart == null){
 }
 findTotalPrice();
 updateCartPageTotal();
+displayCartInHTML();
 //updateLocalStorageOfCart();
 //update cart value in banner, actually find value
 var tmp = localStorage.getItem("amount");
@@ -20,7 +21,6 @@ function bun(flavor, glaze, quantity, price) {
     this.glaze = glaze;
     this.quantity = quantity;
     this.price = price;
-    //this.ID = ID;
 }
 
 //totals price on cart page
@@ -31,43 +31,79 @@ function findTotalPrice(){
     }
     //https://stackoverflow.com/questions/9453421/how-to-round-float-numbers-in-javascript
     cartTotal = (cartTotal).toFixed(2);
-    cart = JSON.parse(localStorage.getItem("bun"))
     return cartTotal
 }
 //show amount of items in cart
-function displayItemsInCart(){
-    var checkRadio = document.getElementsByTagName("input")
-    if (checkRadio.type == "radio") {
-        for (i = 1; i < 5; i++ ){
-            //checks if radio that is selected
-            var x = document.getElementById(i.toString()).checked;
-            if (x == true) {
-                if (i == "1") {
-                    displayValue+=1;
-                }
-                else if (i== "2") {
-                    displayValue+=3;
-                }
-                else if (i== "3") {
-                    displayValue+=6;
-                }
-                else if (i== "4") {
-                    displayValue+=9;
-                }
-            console.log(displayValue, "displayValue");
-            }
+// function displayItemsInCart(){
+//     var checkRadio = document.getElementsByTagName("input")
+//     if (checkRadio.type == "radio") {
+//         for (i = 1; i < 5; i++ ){
+//             //checks if radio that is selected
+//             var x = document.getElementById(i.toString()).checked;
+//             if (x == true) {
+//                 if (i == "1") {
+//                     displayValue+=1;
+//                 }
+//                 else if (i== "2") {
+//                     displayValue+=3;
+//                 }
+//                 else if (i== "3") {
+//                     displayValue+=6;
+//                 }
+//                 else if (i== "4") {
+//                     displayValue+=9;
+//                 }
+//             console.log(displayValue, "displayValue");
+//             }
+//         }
+//     }
+//     return displayValue;
+// }
+
+
+// stores cart value & changing amount in cart to quantity from displayItemsInCart();
+//updates value
+function displayCartInHTML() {
+    localStorage.setItem("bun",JSON.stringify(cart));
+    // returning variable named quantity from displayItemsInCart(), which is the displayValue
+    if (cart.length > 0){
+        //if quantity is more than 0, i want to update it
+        var x = document.getElementById("amtInCart");
+        // console.log(x,"x");
+        // changing the html doc x to quantity
+        //var storeCart = localStorage.setItem("amount",quantity);
+        //storing my stuff so i can refresh and keep my content
+        var quantity2 = 0;
+        for (i=0;i<cart.length;i++ ) {
+            quantity2+= cart[i].quantity;
         }
+        //retreiving my content to be assigned as quantity2
+        //quantity = quantity2;
+        // referring to my html doc and naming the default 0 as x
+        x.innerHTML = quantity2;
+        //assigning quantity to quantity2
+        // console.log(quantity2, "quantity2");
+        return quantity2;
     }
-    return displayValue;
 }
 
+
+function heyo(){
+    // cart
+    // for (var item = 0; item < cart.length; item++){
+    //     +=bun.quantity
+    // }
+}
 ///view - ui displays///////////////////////////////////////
 //updates cart page total
 function updateCartPageTotal(){
     if (cart===null) {
         document.getElementById("totalText").innerHTML= "Total  $0.00";
     }
-    document.getElementById("totalText").innerHTML= "Total  $" + cartTotal;
+    var tmp = document.getElementById("totalText");
+    if (tmp!==null) {
+        tmp.innerHTML= "Total  $" + cartTotal;
+    }
 }
 
 //updatesSubTotal
@@ -169,31 +205,8 @@ function customizeGlazeToObject(){
     return glazeOfBuns;
 }
 
+
 ///controller - user actions/events///////////////////////////////////////
-
-// stores cart value & changing amount in cart to quantity from displayItemsInCart();
-//updates value
-function displayCartInHTML() {
-    var quantity = displayItemsInCart();
-    // returning variable named quantity from displayItemsInCart(), which is the displayValue
-    if (quantity > 0){
-        //if quantity is more than 0, i want to update it
-        var x = document.getElementById("amtInCart");
-        // console.log(x,"x");
-        // changing the html doc x to quantity
-        var storeCart = localStorage.setItem("amount",quantity);
-        //storing my stuff so i can refresh and keep my content
-        var quantity2 = localStorage.getItem("amount");
-        //retreiving my content to be assigned as quantity2
-        quantity = quantity2;
-        // referring to my html doc and naming the default 0 as x
-        x.innerHTML = quantity;
-        //assigning quantity to quantity2
-        // console.log(quantity2, "quantity2");
-        return quantity2;
-    }
-}
-
 //local storage
 function addObjectToCartAndLocalStorage(){
     if (typeof localStorage.getItem("bun") !== "string") {
@@ -220,7 +233,9 @@ function addObjectToCartAndLocalStorage(){
     return storeItemIntoCart;
 }
 /*** Document Load ****/
-$( document ).ready(function() {
+$( document ).ready(modifyHTML);
+
+function modifyHTML() {
     var bun = JSON.parse(localStorage.getItem("bun"));
         for (var item = 0; item < cart.length; item++){
             var quantityFlavorFlavoredBuns = ((bun[item].quantity)+ " " +(bun[item].flavor)+" Flavored Buns");
@@ -245,10 +260,6 @@ $( document ).ready(function() {
                 </div>`
             //console.log(newHTML)
             $(".order").append(newHTML);
-            // var test = $("#item_quantity_flavor"+item).text((bun[item].quantity)+ " " +(bun[item].flavor)+" Flavored Buns");
-            // console.log(test, "div")
-
-            //<p id='editor_x`+item+`'> x </p>
         }
 
 //remove item from cart []
@@ -269,10 +280,12 @@ for (var i=0; i<lookForX.length; i++) {
         //1 only removes the one 1 item SPLICE IS FUCKED aka
         cart.splice(stringOfID,1);
         console.log("cart after splice", cart);
+        localStorage.setItem("bun",JSON.stringify(cart));
+        location.reload();
         });
-    cart = JSON.parse(localStorage.getItem("bun"));
+    //console.log("JSON.stringify(cart)", JSON.stringify(cart))
+    }
 }
-});
 
 console.log("javascript is reading")
 //console.log("cart",cart)

@@ -1,10 +1,12 @@
 ///globals//
 var newItemQuantity = 0;
 var cart = [];
+var cartTotal = 0;
 var storeItemIntoCart = null;
 cart = JSON.parse(localStorage.getItem("bun"));
-//matchCartArraytoCartDisplay();
-
+matchCartArraytoCartDisplay();
+findTotalPrice();
+updateCartPageTotal();
 //update cart value in banner, actually find value
 var tmp = localStorage.getItem("amount");
 var displayValue = tmp==null? 0:(parseInt(tmp,10));
@@ -17,7 +19,16 @@ function bun(flavor, glaze, quantity, price) {
     this.price = price;
     //this.ID = ID;
 }
-
+//totals price on cart page
+function findTotalPrice(){
+    var bun = JSON.parse(localStorage.getItem("bun"));
+    for (var item = 0; item <cart.length; item++){
+        cartTotal+=parseFloat(bun[item].price);
+    }
+    //https://stackoverflow.com/questions/9453421/how-to-round-float-numbers-in-javascript
+    cartTotal = (cartTotal).toFixed(2);
+    return cartTotal
+}
 //show amount of items in cart
 function displayItemsInCart(){
     var checkRadio = document.getElementsByTagName("input")
@@ -71,7 +82,10 @@ function removeItemFromCart(){
 
 
 ///view - ui displays///////////////////////////////////////
-
+//updates cart page total
+function updateCartPageTotal(){
+    document.getElementById("totalText").innerHTML= "Total  $" + cartTotal;
+}
 //updatesSubTotal
 function displaySubtotal() {
     for (i = 1; i < 5; i++ ){
@@ -79,7 +93,7 @@ function displaySubtotal() {
         var x = document.getElementById(i.toString()).checked;
         if (x === true){
             var subtotal = document.getElementById(i).value
-            document.getElementById("updatedTotal").innerHTML = "$" + subtotal;
+            document.getElementById("updatedTotal").innerHTML = "$ " + subtotal;
             return subtotal
             break;
         }
@@ -179,6 +193,8 @@ function customizeGlazeToObject(){
     return glazeOfBuns;
 }
 
+function matchCartArraytoCartDisplay(){
+}
 
 ///controller - user actions/events///////////////////////////////////////
 
@@ -230,6 +246,33 @@ function addObjectToCartAndLocalStorage(){
     console.log(cart) //comment this out and your console breaks lmfao what
     return storeItemIntoCart;
 }
-
+/*** Document Load ****/
+$( document ).ready(function() {
+    var bun = JSON.parse(localStorage.getItem("bun"));
+        for (var item = 0; item < cart.length; item++){
+            var quantityFlavorFlavoredBuns = ((bun[item].quantity)+ " " +(bun[item].flavor)+" Flavored Buns");
+            var withGlazeGlaze = ("With"+ " " +(bun[item].glaze)+ " " +"Glaze");
+            var dollarPrice = ("$"+bun[item].price);
+            $(".order").append(`
+                <p></p>
+                <div id='item'`+item+`>
+                    <h3 id='item_quantity_flavor'+item>` + quantityFlavorFlavoredBuns +`
+                    </h3>
+                    <p id='item_glaze'`+item+`>`+withGlazeGlaze+`</p>
+                </div>
+                <div>
+                    <p id='item_cost'`+item+`>`+dollarPrice+`</p>
+                </div>
+                <div>
+                    <p id='editor_x'`+item+`> x </p>
+                </div>
+                <div>
+                    <p id='editor'`+item+`> Edit </p>
+                    <p>
+                </div>`)
+            // var test = $("#item_quantity_flavor"+item).text((bun[item].quantity)+ " " +(bun[item].flavor)+" Flavored Buns");
+            // console.log(test, "div")
+        }
+});
 console.log("javascript is reading")
 console.log("cart",cart)

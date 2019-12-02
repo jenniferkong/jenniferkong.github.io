@@ -6205,9 +6205,9 @@ a.close.disabled {
   vertical-align: text-top !important;
 }
 
-.bg-primary {
+/*.bg-primary {
   background-color: white !important;
-}
+}*/
 
 a.bg-primary:hover, a.bg-primary:focus,
 button.bg-primary:hover,
@@ -9864,4 +9864,14 @@ form .row:first-child .floating-label-form-group {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+
+canvas {
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
 }

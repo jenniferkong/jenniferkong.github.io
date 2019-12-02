@@ -27,6 +27,5 @@ function draw() {
     var yColor = map(mouseY, 0, 400, 0,255);
     fill(0,xColor-150, yColor);
 
-    print("p5 is running");
   // put drawing code here
 }

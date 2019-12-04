@@ -6,7 +6,6 @@
   <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
   <script src="sketch.js"></script>
 
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -33,12 +32,11 @@
       <a class="navbar-brand js-scroll-trigger" href="#page-top">Jennifer Kong</a>
       <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-normal bg-primary text-dark rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
-        <i class="fas fa-bars"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto font-weight-normal">
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded font-weight-bold" href="#portfolio">Projects</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger font-weight-bold" href="#portfolio">Projects</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="about.html">About</a>
@@ -58,13 +56,27 @@
     <div id="sketch-holder">
       <!-- Our sketch will go here! -->
     </div>
+    <script src="js/freelancer.js"></script>
 
       <!-- Masthead Heading -->
-      <h1 class="masthead-heading text-left mb-0 font-weight-normal">Hi! I’m Jennifer,</h1>
+      <h1 class="masthead-heading text-left mb-0 font-weight-normal"><span id="element"></span></h1>
+
+<script type="text/javascript" src="typed.js"></script>
+<script type="text/javascript">
+  var typed = new Typed('#element', {
+    strings: [
+    "","Hi! I'm Jennifer,"
+    ],
+    typeSpeed: 30,
+    backSpeed: 50,
+    // loop: true
+  });
+</script>
 
       <!-- Masthead Subheading -->
       <p></p>
-      <p class="masthead-subheading text-left font-weight-light mb-0">a fine artist turned ux designer with a fresh twist on visual design, studying at Carnegie Mellon University.</p>
+      <p class="masthead-subheading text-left font-weight-light mb-0 element"> a fine artist turned ux designer with a fresh twist on visual design, studying at Carnegie Mellon University.</p>
+
 
     </div>
   </header>
@@ -217,9 +229,16 @@
     </a>
   </div>
 
+
+<!-- FA Icons from https://stackoverflow.com/questions/24922833/fontawesome-icons-not-showing-why -->
+<link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css"rel="stylesheet"  type='text/css'>
+
+
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
 
   <!-- Plugin JavaScript -->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>

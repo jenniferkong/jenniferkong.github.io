@@ -57,18 +57,24 @@
       </div>
 
       <!-- Masthead Heading -->
-      <h1 class="masthead-heading text-left mb-0 font-weight-normal"><span id="element"></span></h1>
+      <h1 class="masthead-heading text-left mb-0 font-weight-normal"><span id="typed3"></span></h1>
 
       <!-- library from https://github.com/mattboldt/typed.js/ -->
       <script type="text/javascript" src="js/typed.js"></script>
       <script type="text/javascript">
-        var typed = new Typed('#element', {
-          strings: [
-          "test","Hi! I'm Jennifer,"
-          ],
-          typeSpeed: 30,
-          backSpeed: 50,
-        });
+        // var typed = new Typed('#element', {
+        //   strings: [
+        //   "print('Hello, World')","I'm Jennifer!"
+        //   ],
+        //   typeSpeed: 30,
+        //   backSpeed: 50,
+        // });
+        var typed3 = new Typed('#typed3', {
+            strings: ['print("Hello World.")', 'print("I&#39;m Jennifer!")'],
+            typeSpeed: 30,
+            backSpeed: 50,
+            smartBackspace: true, // this is a default
+          });
       </script>
 
       <!-- Masthead Subheading -->

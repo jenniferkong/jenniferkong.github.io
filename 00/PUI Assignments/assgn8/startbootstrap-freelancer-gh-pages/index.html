@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<!--  p5.js plugin -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
+  <script src="sketch.js"></script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+
+  <title>Jennifer Kong * Portfolio</title>
+
+  <!-- Theme CSS -->
+  <link href="css/freelancer.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Jennifer Kong</a>
+      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-normal bg-primary text-dark rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto font-weight-normal">
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger font-weight-bold" href="#portfolio">Projects</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="about.html">About</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="assets/resume_2019.pdf">Resume</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Masthead -->
+  <header class="masthead bg-primary text-dark text-center">
+    <div class="container d-flex align-items-left flex-column">
+<!--       https://github.com/processing/p5.js/wiki/Positioning-your-canvas -->
+      <div id="sketch-holder">
+        <!-- Our sketch will go here! -->
+      </div>
+
+      <!-- Masthead Heading -->
+      <h1 class="masthead-heading text-left mb-0 font-weight-normal"><span id="element"></span></h1>
+
+      <!-- library from https://github.com/mattboldt/typed.js/ -->
+      <script type="text/javascript" src="typed.js"></script>
+      <script type="text/javascript">
+        var typed = new Typed('#element', {
+          strings: [
+          "","Hi! I'm Jennifer,"
+          ],
+          typeSpeed: 30,
+          backSpeed: 50,
+        });
+      </script>
+
+      <!-- Masthead Subheading -->
+      <br>
+      <p class="masthead-subheading text-left font-weight-light mb-0 element"> a fine artist turned ux designer with a fresh twist on visual design, studying at Carnegie Mellon University.</p>
+    </div>
+  </header>
+
+
+  <!-- Portfolio Section -->
+  <section class="page-section portfolio" id="portfolio">
+    <div class="container">
+
+      <!-- Portfolio Section Heading -->
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0"></h2>
+
+      <!-- Portfolio Grid Items -->
+      <div class="row">
+
+        <!-- Portfolio Item 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="portfolio-item mx-auto">
+            <a href="comcast.html">
+              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100 ">
+                <div class="portfolio-item-caption-content text-center text-white">
+                  <p class="">
+                    <h5>Comcast</h5>
+                    <h6> ux design </h6>
+                  </p>
+                </div>
+              </div>
+              <img class="img-fluid" src="assets/projects_comcast/comcast_icon_website.png" alt=""></img>
+            </a>
+          </div>
+        </div>
+
+        <!-- Portfolio Item 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="portfolio-item mx-auto">
+            <a href="dogspot.html">
+              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                <div class="portfolio-item-caption-content text-center text-white">
+                   <p class="">
+                    <h5>DogSpot</h5>
+                    <h6> visual design </h6>
+                   </p>
+                </div>
+              </div>
+              <img class="img-fluid" src="assets/projects_dogspot/dogspot-color_icon1.png" alt="">
+          </a>
+          </div>
+        </div>
+
+        <!-- Portfolio Item 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="portfolio-item mx-auto">
+            <a href="tartantransit.html">
+              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                <div class="portfolio-item-caption-content text-center text-white">
+                  <p class="">
+                    <h5>Tartan Transit</h5>
+                    <h6> ux research </h6>
+                  </p>
+                </div>
+              </div>
+              <img class="img-fluid" src="assets/projects_tartantransit/tartantransit.png" alt=""> </a>
+            </a>
+          </div>
+        </div>
+
+        <!-- Portfolio Item 4 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="portfolio-item mx-auto">
+            <a href="bounce.html">
+              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                <div class="portfolio-item-caption-content text-center text-white">
+                  <p class="">
+                    <h5>Bounce!</h5>
+                    <h6> document design </h6>
+                  </p>
+                </div>
+              </div>
+              <img class="img-fluid" src="assets/projects_bounce/bounce!.png" alt="">
+            </a>
+          </div>
+        </div>
+
+        <!-- Portfolio Item 5 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="portfolio-item mx-auto">
+            <a href="jym.html">
+              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                <div class="portfolio-item-caption-content text-center text-white">
+                  <p class="">
+                    <h5>JYM</h5>
+                    <h6> ux design </h6>
+                  </p>
+                </div>
+              </div>
+            <img class="img-fluid" src="assets/projects_jym/jym.png" alt="">
+            </a>
+          </div>
+        </div>
+
+        <!-- Portfolio Item 6 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="portfolio-item mx-auto">
+            <a href="petnet.html">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <p class="">
+                  <h5>PetNet</h5>
+                  <h6> ux design </h6>
+                </p>
+              </div>
+            </div>
+            <img class="img-fluid" src="assets/projects_petnet/petnet.png" alt="">
+            </a>
+          </div>
+        </div>
+      <!-- ends row -->
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- Copyright Section -->
+  <section class="copyright py-4 text-center text-white">
+    <div class="container">
+      <small>♡ ♡ ♡ </small>
+    </div>
+  </section>
+
+  <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+  <div class="scroll-to-top d-lg-none position-fixed ">
+    <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+      <i class="fa fa-chevron-up" data-x-icon="f077"></i>
+    </a>
+  </div>
+
+
+  <!-- FA Icons from https://stackoverflow.com/questions/24922833/fontawesome-icons-not-showing-why -->
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css"rel="stylesheet"  type='text/css'>
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Contact Form JavaScript -->
+  <script src="js/jqBootstrapValidation.js"></script>
+  <script src="js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/freelancer.min.js"></script>
+
+</body>
+
+</html>

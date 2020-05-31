@@ -9866,6 +9866,11 @@ form .row:first-child .floating-label-form-group {
   background-size: cover;
 }
 
+.fa {
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
 
 canvas {
 position:absolute;

@@ -9866,6 +9866,15 @@ form .row:first-child .floating-label-form-group {
   background-size: cover;
 }
 
+.fa {
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+.video {
+  margin-bottom: 24px;
+}
 
 canvas {
 position:absolute;

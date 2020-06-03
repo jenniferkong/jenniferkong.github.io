@@ -9872,6 +9872,12 @@ form .row:first-child .floating-label-form-group {
   padding-bottom: 10px;
 }
 
+.tool {
+  padding-right: 10px;
+  padding-bottom: 5px;
+  width: 40px;
+}
+
 .video {
   margin-bottom: 24px;
 }

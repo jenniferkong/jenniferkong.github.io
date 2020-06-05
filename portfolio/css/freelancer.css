@@ -9882,6 +9882,10 @@ form .row:first-child .floating-label-form-group {
   margin-bottom: 24px;
 }
 
+.paragraph {
+  max-width: 700px;
+}
+
 canvas {
 position:absolute;
 top:0;

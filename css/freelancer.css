@@ -9886,6 +9886,9 @@ form .row:first-child .floating-label-form-group {
   max-width: 700px;
 }
 
+.cinemateIcons {
+  margin-bottom: 30px;
+}
 canvas {
 position:absolute;
 top:0;

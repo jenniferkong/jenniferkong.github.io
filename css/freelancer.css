@@ -371,7 +371,7 @@ h1, h2, h3, h4, h5, h6,
   margin-bottom: 0.5rem;
  /* font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";*/
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.5;
 }
 
 h1, .h1 {
@@ -9888,6 +9888,16 @@ form .row:first-child .floating-label-form-group {
 
 .cinemateIcons {
   margin-bottom: 30px;
+}
+
+.seemore {
+  text-align: center;
+  opacity: 80%;
+
+/*  color: #D3D3D3 !important;*/
+/*  font-weight: bolder;*/
+/*  text-decoration: none;
+  background-color: transparent;*/
 }
 canvas {
 position:absolute;

@@ -9899,6 +9899,18 @@ form .row:first-child .floating-label-form-group {
 /*  text-decoration: none;
   background-color: transparent;*/
 }
+
+/*code from https://www.w3schools.com/css/css_align.asp*/
+.img-profile {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding: 15px;
+/*  border:none;*/
+/*
+  border: 3px solid green;*/
+}
+
 canvas {
 position:absolute;
 top:0;

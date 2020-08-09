@@ -9911,6 +9911,18 @@ form .row:first-child .floating-label-form-group {
   border: 3px solid green;*/
 }
 
+.masthead-projects {
+  padding-top: calc(1rem + 74px);
+  padding-bottom: 6rem;
+}
+
+.img-icon {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  border: 3px solid green;
+  padding: 0px;
+}
 canvas {
 position:absolute;
 top:0;
